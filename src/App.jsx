@@ -3,6 +3,9 @@ import TodoData from "./components/todo/TodoData";
 import TodoNew from "./components/todo/TodoNew";
 import reactLogo from "./assets/react.svg";
 import { useState } from "react";
+import Header from "./pages/layout/header"
+import Footer from "./pages/layout/footer";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const [todoList, setTodoList] = useState([
@@ -26,6 +29,8 @@ const App = () => {
     return Math.floor(Math.random() * (max - min + 1) + min);
     }
   return (
+    <>
+    <Header/>
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
       <TodoNew addNewTodo={addNewTodo} />
@@ -44,6 +49,9 @@ const App = () => {
       </div>
       } */}
     </div>
+    <Outlet/>
+    <Footer/>
+    </>
   );
 };
 export default App;
