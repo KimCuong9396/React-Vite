@@ -3,13 +3,9 @@ import UserForm from "./user.form";
 import { fetchAllUserAPI } from "../../services/api.service";
 import { useEffect, useState } from "react";
 const UserTable = () => {
-  const [dataUsers, setDataUser] = useState([
-    { _id: "a", fullName: 24, email: "hn" },
-    { _id: "b", fullName: 24, email: "hn" },
-  ]);
+  const [dataUsers, setDataUser] = useState([]);
 
   useEffect(() => {
-    console.log(">>>run useEffect 1111");
     loadUser();
   }, []);
   const columns = [
@@ -30,8 +26,6 @@ const UserTable = () => {
     const res = await fetchAllUserAPI();
     setDataUser(res.data);
   };
-
-  console.log(">>> run render 0000");
   return (
     <>
       <UserForm />
