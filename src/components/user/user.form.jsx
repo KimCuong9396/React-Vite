@@ -1,6 +1,6 @@
 import { Button, Input, notification } from "antd";
 import { useState } from "react";
-import createUserAPI from "../../services/api.service";
+import { createUserAPI } from "../../services/api.service";
 import ButtonGroup from "antd/es/button/button-group";
 
 const UserForm = () => {
