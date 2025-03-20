@@ -2,6 +2,7 @@ import { Button, Input, notification, Modal } from "antd";
 import { useState } from "react";
 import { createUserAPI } from "../../services/api.service";
 import ButtonGroup from "antd/es/button/button-group";
+import { FastForwardFilled } from "@ant-design/icons";
 
 const UserForm = () => {
   const [fullName, setFullName] = useState("");
@@ -22,13 +23,20 @@ const UserForm = () => {
         message: "create user",
         description: "Tạo user thành công",
       });
-      setIsModalOpen(false);
+      resetAndCloseModal();
     } else {
       notification.error({
         message: "Error create user",
         description: JSON.stringify(res.message),
       });
     }
+  };
+  const resetAndCloseModal = () => {
+    setIsModalOpen(false);
+    setFullName("");
+    setEmail("");
+    setPassword("");
+    setPhone("");
   };
   return (
     <div>
@@ -43,7 +51,7 @@ const UserForm = () => {
         title="Create user"
         open={isModalOpen}
         onOk={handleCreateBtn}
-        onCancel={() => setIsModalOpen(false)}
+        onCancel={() => resetAndCloseModal()}
         maskClosable={false}
         okText={"CREATE"}
       >
