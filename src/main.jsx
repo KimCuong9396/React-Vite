@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import UserPage from "./pages/users";
-import BookPage from "./pages/books.jsx";
+import BookPage from "./pages/book.jsx";
 import "./styles/global.css";
 import Todo from "./components/todo/Todo.jsx";
 import ErrorPage from "./pages/error.jsx";

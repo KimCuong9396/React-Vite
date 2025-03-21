@@ -1,10 +1,9 @@
 import { Button, Input, notification, Modal } from "antd";
 import { useState } from "react";
 import { createUserAPI } from "../../services/api.service";
-import ButtonGroup from "antd/es/button/button-group";
-import { FastForwardFilled } from "@ant-design/icons";
-
-const UserForm = () => {
+const UserForm = (props) => {
+  const { loadUser } = props;
+  //console.log(">>>loadUser", loadUser);
   const [fullName, setFullName] = useState("");
 
   const [email, setEmail] = useState("");
@@ -24,6 +23,7 @@ const UserForm = () => {
         description: "Tạo user thành công",
       });
       resetAndCloseModal();
+      await loadUser();
     } else {
       notification.error({
         message: "Error create user",
