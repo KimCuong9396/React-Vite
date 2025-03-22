@@ -5,7 +5,6 @@ const UserForm = (props) => {
   const { loadUser } = props;
   //console.log(">>>loadUser", loadUser);
   const [fullName, setFullName] = useState("");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
   const [phone, setPhone] = useState();
