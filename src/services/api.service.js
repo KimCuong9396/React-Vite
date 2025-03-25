@@ -29,5 +29,17 @@ const deleteUserAPI = (_id) => {
   const URL_BACKEND = `/api/users/${_id}`;
   return axios.delete(URL_BACKEND);
 };
+const searchUserAPI = (keyword) => {
+  const URL_BACKEND = `/api/users/search?keyword=${encodeURIComponent(
+    keyword
+  )}`;
+  return axios.get(URL_BACKEND);
+};
 
-export { createUserAPI, fetchAllUserAPI, updateUserAPI, deleteUserAPI };
+export {
+  createUserAPI,
+  fetchAllUserAPI,
+  updateUserAPI,
+  deleteUserAPI,
+  searchUserAPI,
+};

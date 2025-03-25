@@ -1,8 +1,8 @@
 import { Button, Input, notification, Modal } from "antd";
-import { useState } from "react";
-import { createUserAPI } from "../../services/api.service";
+import { useEffect, useState } from "react";
+import { createUserAPI, searchUserAPI } from "../../services/api.service";
 const UserForm = (props) => {
-  const { loadUser } = props;
+  const { loadUser, search, setSearch } = props;
   //console.log(">>>loadUser", loadUser);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,6 +39,14 @@ const UserForm = (props) => {
   };
   return (
     <div>
+      <Input
+        onChange={async (event) => {
+          setSearch(event.target.value);
+          console.log("kq search1", search);
+          //const res = await searchUserAPI(search);
+          //console.log("result search", res);
+        }}
+      />
       <br />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h3>Table Users</h3>

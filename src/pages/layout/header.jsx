@@ -10,7 +10,7 @@ import { useState } from "react";
 const Header = () => {
   const [current, setCurrent] = useState("");
   const onClick = (e) => {
-    console.log("click ", e);
+    //console.log("click ", e);
     setCurrent(e.key);
   };
   const items = [
