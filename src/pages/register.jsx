@@ -1,6 +1,6 @@
-import { Button, Form, Input, notification } from "antd";
+import { Button, Col, Divider, Form, Input, notification, Row } from "antd";
 import { registerUserAPI } from "../services/api.service";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -34,54 +34,79 @@ const RegisterPage = () => {
         form={form}
         layout="vertical"
         onFinish={onFinish}
+        style={{ margin: "10px" }}
         //onFinishFailed={onFinishFailed}
       >
-        <Form.Item
-          label="FullName"
-          name="fullName"
-          rules={[{ required: true, message: "Please input your Full name!" }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[{ required: true, message: "Please input your email!" }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
-        >
-          <Input.Password />
-        </Form.Item>
-        <Form.Item
-          label="Phone"
-          name="phone"
-          rules={[
-            {
-              required: true,
-              //type: "regexp",
-              pattern: new RegExp(/\d+/g),
-              message: "Wrong format!",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        {/* <button type="submit">Register</button> */}
-        <Button
-          type="primary"
-          onClick={() => {
-            form.submit();
-          }}
-        >
-          Register
-        </Button>
+        <Row justify={"center"}>
+          <Col xs={24} md={6}>
+            <Form.Item
+              label="FullName"
+              name="fullName"
+              rules={[
+                { required: true, message: "Please input your Full name!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row justify={"center"}>
+          <Col xs={24} md={6}>
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[{ required: true, message: "Please input your email!" }]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row justify={"center"}>
+          <Col xs={24} md={6}>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row justify={"center"}>
+          <Col xs={24} md={6}>
+            <Form.Item
+              label="Phone"
+              name="phone"
+              rules={[
+                {
+                  required: true,
+                  //type: "regexp",
+                  pattern: new RegExp(/\d+/g),
+                  message: "Wrong format!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row justify={"center"}>
+          {/* <button type="submit">Register</button> */}
+          <Col xs={24} md={6}>
+            <Button
+              type="primary"
+              onClick={() => {
+                form.submit();
+              }}
+            >
+              Register
+            </Button>
+          </Col>
+        </Row>
       </Form>
-      <Button
+      {/* <Button
         onClick={() => {
           //const a = form.getFieldValue("email");
           form.setFieldValue("email", "123@");
@@ -90,7 +115,11 @@ const RegisterPage = () => {
         type="primary"
       >
         Test
-      </Button>
+      </Button> */}
+      <Divider />
+      <div>
+        Đã có tài khoản? <Link to={"/login"}>Đăng nhập tại đây</Link>
+      </div>
     </>
   );
 };

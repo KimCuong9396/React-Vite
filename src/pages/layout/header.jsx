@@ -4,6 +4,7 @@ import {
   UserSwitchOutlined,
   HomeOutlined,
   AuditOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
 
@@ -28,6 +29,21 @@ const Header = () => {
       label: <Link to={"/books"}>Book</Link>,
       key: "book",
       icon: <AuditOutlined />,
+    },
+    {
+      label: "Setting",
+      key: "setting",
+      icon: <SettingOutlined />,
+      children: [
+        {
+          label: <Link to={"/login"}>Đăng nhập</Link>,
+          key: "login",
+        },
+        {
+          label: "Đăng xuất",
+          key: "logout",
+        },
+      ],
     },
   ];
   return (

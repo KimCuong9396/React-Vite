@@ -47,6 +47,20 @@ const registerUserAPI = (fullName, email, password, phone) => {
   return axios.post(URL_BACKEND, data);
 };
 
+const loginUserAPI = async (email, password) => {
+  try {
+    const URL_BACKEND = "/api/login"; // URL của backend
+    const response = await axios.post(URL_BACKEND, {
+      email,
+      password,
+    });
+
+    return response.data; // Trả về kết quả từ backend (ví dụ: "Đăng nhập thành công!")
+  } catch (error) {
+    return error.response?.data || { message: "Có lỗi xảy ra!" };
+  }
+};
+
 export {
   createUserAPI,
   fetchAllUserAPI,
@@ -54,4 +68,5 @@ export {
   deleteUserAPI,
   searchUserAPI,
   registerUserAPI,
+  loginUserAPI,
 };
