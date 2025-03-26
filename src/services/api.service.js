@@ -36,10 +36,22 @@ const searchUserAPI = (keyword) => {
   return axios.get(URL_BACKEND);
 };
 
+const registerUserAPI = (fullName, email, password, phone) => {
+  const URL_BACKEND = "/api/register";
+  const data = {
+    fullName: fullName,
+    email: email,
+    password: password,
+    phone: phone,
+  };
+  return axios.post(URL_BACKEND, data);
+};
+
 export {
   createUserAPI,
   fetchAllUserAPI,
   updateUserAPI,
   deleteUserAPI,
   searchUserAPI,
+  registerUserAPI,
 };
