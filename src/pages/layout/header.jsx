@@ -14,7 +14,7 @@ import { AuthContext } from "../../components/context/auth.context";
 
 const Header = () => {
   const data = useContext(AuthContext);
-  console.log(">>>check user", data);
+  console.log(">>>check user", data.user.fullName);
 
   const [current, setCurrent] = useState("");
   const onClick = (e) => {
@@ -37,22 +37,33 @@ const Header = () => {
       key: "book",
       icon: <AuditOutlined />,
     },
-    {
-      label: <Link to={"/login"}>Đăng nhập</Link>,
-      key: "login",
-      icon: <LoginOutlined />,
-    },
-    {
-      label: "Welcome bla bla",
-      key: "welcome",
-      icon: <AliwangwangOutlined />,
-      children: [
-        {
-          label: "Đăng xuất",
-          key: "logout",
-        },
-      ],
-    },
+
+    ...(!data.user.id
+      ? [
+          {
+            label: <Link to={"/login"}>Đăng nhập</Link>,
+            key: "login",
+            icon: <LoginOutlined />,
+          },
+        ]
+      : []),
+    ...(data.user.id
+      ? [
+          {
+            label: `Welcome ${data.user.fullName}`,
+            key: "welcome",
+            icon: <AliwangwangOutlined />,
+            children: [
+              {
+                label: "Đăng xuất",
+                key: "logout",
+              },
+            ],
+          },
+        ]
+      : []),
+
+    {},
   ];
   return (
     <Menu

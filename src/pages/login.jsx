@@ -24,7 +24,7 @@ const LoginPage = () => {
     //console.log(">>>check value", values.email);
     const res = await loginUserAPI(values.email, values.password);
 
-    //console.log(">>>check value", res.user);
+    console.log(">>>check value", res.user);
     //console.log(">>>check value", res);
     if (res.user) {
       message.success("Đăng nhập thành công");
