@@ -9,6 +9,7 @@ import BookPage from "./pages/book.jsx";
 import "./styles/global.css";
 import Todo from "./components/todo/Todo.jsx";
 import ErrorPage from "./pages/error.jsx";
+import { AuthWrapper } from "./components/context/auth.context.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   //<StrictMode>
-  <RouterProvider router={router} />
+  <AuthWrapper>
+    <RouterProvider router={router} />
+  </AuthWrapper>
   //</StrictMode>
 );

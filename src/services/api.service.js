@@ -11,12 +11,12 @@ const createUserAPI = (fullName, email, password, phone) => {
   return axios.post(URL_BACKEND, data);
 };
 const fetchAllUserAPI = () => {
-  const URL_BACKEND = "/api/users";
+  const URL_BACKEND = "/api/";
   return axios.get(URL_BACKEND);
 };
 
 const updateUserAPI = (_id, fullName, phone) => {
-  const URL_BACKEND = "/api/users";
+  const URL_BACKEND = "/api/";
   const data = {
     _id: _id,
     fullName: fullName,
@@ -26,13 +26,11 @@ const updateUserAPI = (_id, fullName, phone) => {
 };
 
 const deleteUserAPI = (_id) => {
-  const URL_BACKEND = `/api/users/${_id}`;
+  const URL_BACKEND = `/api/${_id}`;
   return axios.delete(URL_BACKEND);
 };
 const searchUserAPI = (keyword) => {
-  const URL_BACKEND = `/api/users/search?keyword=${encodeURIComponent(
-    keyword
-  )}`;
+  const URL_BACKEND = `/api/search?keyword=${encodeURIComponent(keyword)}`;
   return axios.get(URL_BACKEND);
 };
 

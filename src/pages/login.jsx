@@ -11,11 +11,13 @@ import {
 import { loginUserAPI, registerUserAPI } from "../services/api.service";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../components/context/auth.context";
 
 const LoginPage = () => {
   //const [loading, setLoading] = useState("false");
   const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext);
   const [form] = Form.useForm();
   const onFinish = async (values) => {
     //setLoading(false);
@@ -26,7 +28,8 @@ const LoginPage = () => {
     //console.log(">>>check value", res);
     if (res.user) {
       message.success("Đăng nhập thành công");
-
+      localStorage.setItem("access_token", res.user.Token);
+      setUser(res.user);
       navigate("/");
     } else {
       notification.error({
