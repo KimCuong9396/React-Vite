@@ -5,6 +5,9 @@ import {
   HomeOutlined,
   AuditOutlined,
   SettingOutlined,
+  LoginOutlined,
+  MessageOutlined,
+  AliwangwangOutlined,
 } from "@ant-design/icons";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../components/context/auth.context";
@@ -35,14 +38,15 @@ const Header = () => {
       icon: <AuditOutlined />,
     },
     {
-      label: "Setting",
-      key: "setting",
-      icon: <SettingOutlined />,
+      label: <Link to={"/login"}>Đăng nhập</Link>,
+      key: "login",
+      icon: <LoginOutlined />,
+    },
+    {
+      label: "Welcome bla bla",
+      key: "welcome",
+      icon: <AliwangwangOutlined />,
       children: [
-        {
-          label: <Link to={"/login"}>Đăng nhập</Link>,
-          key: "login",
-        },
         {
           label: "Đăng xuất",
           key: "logout",
