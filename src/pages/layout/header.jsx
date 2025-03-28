@@ -13,8 +13,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../components/context/auth.context";
 
 const Header = () => {
-  const data = useContext(AuthContext);
-  console.log(">>>check user", data.user.fullName);
+  const { user } = useContext(AuthContext);
+  console.log(">>>check user", user._id);
 
   const [current, setCurrent] = useState("");
   const onClick = (e) => {
@@ -38,7 +38,7 @@ const Header = () => {
       icon: <AuditOutlined />,
     },
 
-    ...(!data.user.id
+    ...(!user._id
       ? [
           {
             label: <Link to={"/login"}>Đăng nhập</Link>,
@@ -47,10 +47,10 @@ const Header = () => {
           },
         ]
       : []),
-    ...(data.user.id
+    ...(user._id
       ? [
           {
-            label: `Welcome ${data.user.fullName}`,
+            label: `Welcome ${user.fullName}`,
             key: "welcome",
             icon: <AliwangwangOutlined />,
             children: [

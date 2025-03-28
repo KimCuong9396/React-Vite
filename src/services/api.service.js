@@ -59,6 +59,11 @@ const loginUserAPI = async (email, password) => {
   }
 };
 
+const getAccountAPI = () => {
+  const URL_BACKEND = "/api/me";
+  return axios.get(URL_BACKEND);
+};
+
 export {
   createUserAPI,
   fetchAllUserAPI,
@@ -67,4 +72,5 @@ export {
   searchUserAPI,
   registerUserAPI,
   loginUserAPI,
+  getAccountAPI,
 };

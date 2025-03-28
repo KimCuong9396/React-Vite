@@ -25,7 +25,7 @@ const UserTable = (props) => {
               e.preventDefault();
               setIsModalDetailOpen(true);
               setDataDetail(record);
-              console.log("record>>", record);
+              //console.log("record>>", record);
             }}
           >
             {record._id}{" "}
@@ -57,7 +57,7 @@ const UserTable = (props) => {
           <DeleteOutlined
             onClick={() => {
               setDataId(record);
-              console.log("record delete>>", record);
+              //console.log("record delete>>", record);
               setIsModalDeleteOpen(true);
             }}
             style={{ cursor: "pointer", color: "red" }}

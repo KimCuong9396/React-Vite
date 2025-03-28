@@ -24,11 +24,11 @@ const LoginPage = () => {
     //console.log(">>>check value", values.email);
     const res = await loginUserAPI(values.email, values.password);
 
-    console.log(">>>check value", res.user);
+    //console.log(">>>check value", res.user);
     //console.log(">>>check value", res);
     if (res.user) {
       message.success("Đăng nhập thành công");
-      localStorage.setItem("access_token", res.user.Token);
+      localStorage.setItem("access_token", res.user.token);
       setUser(res.user);
       navigate("/");
     } else {
@@ -75,7 +75,12 @@ const LoginPage = () => {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password
+                onKeyDown={(event) => {
+                  //console.log("check event", event.key);
+                  if (event.key === "Enter") form.submit();
+                }}
+              />
             </Form.Item>
             <div
               style={{

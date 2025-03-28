@@ -16,7 +16,7 @@ const Todo = () => {
     };
     const deleteTodo=(id)=>{
       const newTodo=todoList.filter(item=>item.id !==id)
-      console.log(">>>check newTodo",newTodo)
+      //console.log(">>>check newTodo",newTodo)
       setTodoList(newTodo)
   
     }

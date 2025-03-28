@@ -10,6 +10,7 @@ import "./styles/global.css";
 import Todo from "./components/todo/Todo.jsx";
 import ErrorPage from "./pages/error.jsx";
 import { AuthWrapper } from "./components/context/auth.context.jsx";
+import PrivateRoute from "./pages/layout/private.route.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/books",
-        element: <BookPage />,
+        element: (
+          <PrivateRoute>
+            <BookPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },
